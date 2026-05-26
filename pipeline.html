@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pipeline — AACR 2026 Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.funnel-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0;
+  margin-bottom: 1px;
+}
+.funnel-label {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-right: none;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.funnel-stage {
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.funnel-n {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-top: 0.2rem;
+}
+.funnel-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.funnel-row:hover .funnel-content,
+.funnel-row:hover .funnel-label {
+  background: var(--bg-3);
+}
+.funnel-mods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.fmod {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.fmod strong {
+  color: var(--gold);
+  font-weight: 500;
+}
+.funnel-inds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.find {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding: 0.15rem 0.45rem;
+  background: var(--blue-dim);
+  border: 1px solid rgba(74,158,255,0.15);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+}
+
+.program-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 160px 120px;
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 1px;
+}
+.program-row:hover > div { background: var(--bg-3); }
+.pr-cell {
+  background: var(--bg-card);
+  padding: 0.75rem 1rem;
+  font-size: 0.84rem;
+}
+.pr-name { font-weight: 600; color: var(--text); }
+.pr-desc { color: var(--text-muted); font-size: 0.8rem; line-height: 1.4; }
+.pr-target { color: var(--gold); font-family: var(--font-mono); font-size: 0.75rem; }
+.pr-ind { color: var(--text-muted); font-size: 0.8rem; }
+.pr-badge {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 0.62rem;
+  padding: 0.18rem 0.45rem; border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 3rem;
+}
+.stat-cell {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  text-align: center;
+}
+.stat-cell .stat-num { font-family: var(--font-display); font-size: 2rem; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
+.stat-cell .stat-label { font-size: 0.78rem; color: var(--text-muted); }
+.stat-cell .stat-note { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-dim); margin-top: 0.35rem; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">F-Prime<span class="nav-sep">|</span>AACR 2026</div>
+  <div class="nav-links">
+    <a href="index.html">Overview</a>
+    <a href="targets.html">Targets</a>
+    <a href="modalities.html">Modalities</a>
+    <a href="tumors.html">Tumor Deep Dives</a>
+    <a href="emerging.html">Signals</a>
+    <a href="pipeline.html" class="active">Pipeline</a>
+    <a href="biomarkers.html">Biomarkers</a>
+    <a href="coverage.html">F-Prime Coverage</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-header">
+    <div class="page-tag">The Pipeline</div>
+    <h1>From Lab to Clinic</h1>
+    <p>Stage distribution, modality breakdown, and named programs across the 357 clinical-stage abstracts at AACR 2026. AACR is overwhelmingly preclinical — which makes the clinical programs here a signal of what has already survived the first filter.</p>
+  </div>
+</div>
+
+<main class="container main-content" style="padding-top:0">
+
+  <section class="content-section">
+    <div class="section-label">The Funnel</div>
+    <h2 class="section-title">3,489 Abstracts, 357 Clinical</h2>
+
+    <div class="two-col" style="margin-bottom:2.5rem">
+      <div class="prose">
+        <p>96% of AACR 2026 is preclinical. That is not a weakness — it is the point. AACR is where programs are at the stage where venture can still shape outcomes. The 357 clinical-stage abstracts represent programs that have cleared IND and generated human data good enough to present at a major conference. They deserve closer attention than their minority share suggests.</p>
+        <p>The funnel compression is steep: 3,347 preclinical, 245 Phase 1, 82 Phase 2, 30 Phase 3. Each jump is roughly a 3-4x reduction. The modality mix changes significantly across stages — IO dominates Phase 3 (legacy of the checkpoint era), while ADC and bispecific are concentrated in Phase 1, reflecting when those programs entered clinical development.</p>
+        <p>45% of Phase 1 programs at AACR 2026 have explicit biomarker selection criteria — a meaningful increase from the IO era, when PD-L1 IHC was often the only selection tool. 43% are combination programs.</p>
+      </div>
+      <div>
+        <div class="stat-row">
+          <div class="stat-cell">
+            <div class="stat-num">3,347</div>
+            <div class="stat-label">Preclinical</div>
+            <div class="stat-note">96% of all abstracts</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">245</div>
+            <div class="stat-label">Phase 1</div>
+            <div class="stat-note">45% biomarker-selected</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">82</div>
+            <div class="stat-label">Phase 2</div>
+            <div class="stat-note">43% combination</div>
+          </div>
+        </div>
+        <div class="stat-row" style="margin-bottom:0">
+          <div class="stat-cell">
+            <div class="stat-num">30</div>
+            <div class="stat-label">Phase 3</div>
+            <div class="stat-note">Near-term catalysts</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">89</div>
+            <div class="stat-label">First-in-human</div>
+            <div class="stat-note">Novel / FIH at AACR</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">154</div>
+            <div class="stat-label">Named programs</div>
+            <div class="stat-note">With drug identifiers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-row">
+      <div class="funnel-label">
+        <div class="funnel-stage" style="color:var(--text-dim)">Preclinical</div>
+        <div class="funnel-n" style="color:var(--text-dim)">3,347</div>
+      </div>
+      <div class="funnel-content">
+        <div style="font-size:0.85rem;color:var(--text-muted)">Basic research, cell lines, mouse models, PDX, organoids. The majority of AACR. Target validation, mechanism studies, combination rationale.</div>
+        <div class="funnel-mods">
+          <span class="fmod">Cell therapy <strong>1,581</strong></span>
+          <span class="fmod">Bispecific <strong>416</strong></span>
+          <span class="fmod">IO/Checkpoint <strong>290</strong></span>
+          <span class="fmod">ADC <strong>267</strong></span>
+          <span class="fmod">KRAS inh <strong>184</strong></span>
+          <span class="fmod">mRNA/LNP <strong>164</strong></span>
+          <span class="fmod">CAR-T <strong>118</strong></span>
+          <span class="fmod">PROTAC <strong>72</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-row">
+      <div class="funnel-label">
+        <div class="funnel-stage" style="color:var(--blue)">Phase 1</div>
+        <div class="funnel-n" style="color:var(--blue)">245</div>
+      </div>
+      <div class="funnel-content">
+        <div style="font-size:0.85rem;color:var(--text-muted)">Dose escalation, safety, PK/PD, early signals. 45% have biomarker enrichment. 43% are combination programs. Top indication: CRC (48), SCLC (40), NSCLC (35), Breast (31), Pancreatic (28).</div>
+        <div class="funnel-mods">
+          <span class="fmod">IO/Checkpoint <strong>41</strong></span>
+          <span class="fmod">Bispecific <strong>33</strong></span>
+          <span class="fmod">ADC <strong>28</strong></span>
+          <span class="fmod">CAR-T <strong>16</strong></span>
+          <span class="fmod">KRAS inh <strong>11</strong></span>
+          <span class="fmod">PROTAC <strong>11</strong></span>
+          <span class="fmod">Radiopharm <strong>7</strong></span>
+        </div>
+        <div class="funnel-inds">
+          <span class="find">CRC 48</span>
+          <span class="find">SCLC 40</span>
+          <span class="find">NSCLC 35</span>
+          <span class="find">Breast 31</span>
+          <span class="find">Pancreatic 28</span>
+          <span class="find">Heme 23</span>
+          <span class="find">Melanoma 16</span>
+          <span class="find">Gastric 15</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-row">
+      <div class="funnel-label">
+        <div class="funnel-stage" style="color:var(--gold)">Phase 2</div>
+        <div class="funnel-n" style="color:var(--gold)">82</div>
+      </div>
+      <div class="funnel-content">
+        <div style="font-size:0.85rem;color:var(--text-muted)">Efficacy signals. Fewer surprises in target or modality — programs here have earned their shot. Breast (13) and CRC (13) lead. Bispecific and IO dominate by modality.</div>
+        <div class="funnel-mods">
+          <span class="fmod">IO/Checkpoint <strong>15</strong></span>
+          <span class="fmod">Bispecific <strong>12</strong></span>
+          <span class="fmod">ADC <strong>6</strong></span>
+          <span class="fmod">PROTAC <strong>2</strong></span>
+          <span class="fmod">mRNA/LNP <strong>2</strong></span>
+        </div>
+        <div class="funnel-inds">
+          <span class="find">Breast 13</span>
+          <span class="find">CRC 13</span>
+          <span class="find">Pancreatic 9</span>
+          <span class="find">SCLC 9</span>
+          <span class="find">NSCLC 8</span>
+          <span class="find">Prostate 6</span>
+          <span class="find">Gastric 6</span>
+          <span class="find">GBM 5</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-row">
+      <div class="funnel-label">
+        <div class="funnel-stage" style="color:var(--green)">Phase 3</div>
+        <div class="funnel-n" style="color:var(--green)">30</div>
+      </div>
+      <div class="funnel-content">
+        <div style="font-size:0.85rem;color:var(--text-muted)">Near-term market-moving catalysts. IO-heavy by legacy of the checkpoint era. ADC programs with 5 Ph3 abstracts represent the next wave. No CAR-T has reached Phase 3 in any indication yet.</div>
+        <div class="funnel-mods">
+          <span class="fmod">IO/Checkpoint <strong>8</strong></span>
+          <span class="fmod">ADC <strong>5</strong></span>
+          <span class="fmod">Bispecific <strong>2</strong></span>
+          <span class="fmod">PROTAC <strong>1</strong></span>
+          <span class="fmod">mRNA/LNP <strong>1</strong></span>
+          <span class="fmod">CAR-T <strong>0</strong></span>
+        </div>
+        <div class="funnel-inds">
+          <span class="find">Breast 5</span>
+          <span class="find">NSCLC 4</span>
+          <span class="find">CRC 4</span>
+          <span class="find">Ovarian 4</span>
+          <span class="find">SCLC 4</span>
+          <span class="find">Pancreatic 2</span>
+          <span class="find">GBM 2</span>
+          <span class="find">HCC 2</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="section-label">Named Phase 1 Programs</div>
+    <h2 class="section-title">First-in-Human Programs at AACR 2026</h2>
+    <p class="prose" style="margin-bottom:2rem">89 first-in-human or novel Phase 1 programs presented at AACR 2026. A selection of the most structurally interesting — chosen for target novelty, modality innovation, or indication significance. All data extracted from abstract summaries.</p>
+
+    <div style="margin-bottom:1rem">
+      <div style="display:grid;grid-template-columns:160px 1fr 180px 130px;gap:1px;background:var(--border);margin-bottom:1px">
+        <div style="background:var(--bg-3);padding:0.6rem 1rem;font-family:var(--font-mono);font-size:0.64rem;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase">PROGRAM</div>
+        <div style="background:var(--bg-3);padding:0.6rem 1rem;font-family:var(--font-mono);font-size:0.64rem;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase">MECHANISM</div>
+        <div style="background:var(--bg-3);padding:0.6rem 1rem;font-family:var(--font-mono);font-size:0.64rem;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase">TARGET</div>
+        <div style="background:var(--bg-3);padding:0.6rem 1rem;font-family:var(--font-mono);font-size:0.64rem;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase">INDICATION</div>
+      </div>
+
+      <div class="program-row">
+        <div class="pr-cell pr-name">BMS-986504</div>
+        <div class="pr-cell pr-desc">PRMT5 inhibitor exploiting MTAP-deletion synthetic lethality. First-in-class in GBM setting.</div>
+        <div class="pr-cell pr-target">PRMT5 / MTAP-del</div>
+        <div class="pr-cell pr-ind">Recurrent GBM</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">DB-1324</div>
+        <div class="pr-cell pr-desc">ADC targeting CDH17, a GI-specific cadherin. First-in-human CDH17-directed ADC in GI tumors.</div>
+        <div class="pr-cell pr-target">CDH17</div>
+        <div class="pr-cell pr-ind">GI cancers (adv/met)</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">DB-1317</div>
+        <div class="pr-cell pr-desc">ADC targeting ADAM9, a metalloproteinase upregulated in multiple solid tumors. Novel target class for ADC.</div>
+        <div class="pr-cell pr-target">ADAM9</div>
+        <div class="pr-cell pr-ind">Solid tumors</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">PLX-61639</div>
+        <div class="pr-cell pr-desc">SMARCA2 degrader in SMARCA4-deficient tumors. Synthetic lethality via SWI/SNF paralog dependency.</div>
+        <div class="pr-cell pr-target">SMARCA2 / SMARCA4-def</div>
+        <div class="pr-cell pr-ind">SMARCA4-def solid tumors</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">177Lu-RAD202</div>
+        <div class="pr-cell pr-desc">HER2-targeted radioligand therapy using single-domain antibody (sdAb) for improved tumor penetration.</div>
+        <div class="pr-cell pr-target">HER2</div>
+        <div class="pr-cell pr-ind">HER2+ solid tumors</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">IMT-009</div>
+        <div class="pr-cell pr-desc">Anti-CD161 IgG1 mAb blocking CD161/CLEC2D interaction. Novel innate checkpoint in MSS CRC — an indication that lacks IO options.</div>
+        <div class="pr-cell pr-target">CD161 / CLEC2D</div>
+        <div class="pr-cell pr-ind">MSS colorectal</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">CT-01</div>
+        <div class="pr-cell pr-desc">Molecular glue degrader targeting GSPT1 and NEK7. Dual degradation in HCC — a cancer with few targeted options.</div>
+        <div class="pr-cell pr-target">GSPT1 / NEK7</div>
+        <div class="pr-cell pr-ind">HCC</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">BDC-4182</div>
+        <div class="pr-cell pr-desc">CLDN18.2-directed ADC in gastric and GEJ cancer. One of several competing CLDN18.2 ADC programs entering first-in-human.</div>
+        <div class="pr-cell pr-target">CLDN18.2</div>
+        <div class="pr-cell pr-ind">Gastric / GEJ</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">LGTX-101</div>
+        <div class="pr-cell pr-desc">ML-designed Nectin-4 × CD3 bispecific T-cell engager. Notable for AI-assisted antibody engineering in the design process.</div>
+        <div class="pr-cell pr-target">Nectin-4 × CD3</div>
+        <div class="pr-cell pr-ind">Urothelial, TNBC, NSCLC</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">MTS109</div>
+        <div class="pr-cell pr-desc">mRNA-encoded trispecific CD19×BCMA×CD3 T-cell engager. Combines mRNA delivery with multi-target immune engagement.</div>
+        <div class="pr-cell pr-target">CD19 × BCMA × CD3</div>
+        <div class="pr-cell pr-ind">B-cell cancers / autoimmunity</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">[212Pb]VMT-a-NET</div>
+        <div class="pr-cell pr-desc">Alpha-particle radioligand targeting SSTR2 in neuroendocrine tumors. Alpha therapy for NETs with higher LET than beta emitters.</div>
+        <div class="pr-cell pr-target">SSTR2</div>
+        <div class="pr-cell pr-ind">GEP-NET, pheochromocytoma</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">ACR246</div>
+        <div class="pr-cell pr-desc">ADC targeting 5T4, an antigen with high expression in esophageal SCC and limited normal tissue presence. Underexplored target.</div>
+        <div class="pr-cell pr-target">5T4 (TPBG)</div>
+        <div class="pr-cell pr-ind">Esophageal SCC</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">RX001 (rAAV2-RUNX3)</div>
+        <div class="pr-cell pr-desc">Intratumoral AAV gene therapy restoring RUNX3 tumor suppressor in KRAS-mutant NSCLC. First gene therapy approach for KRAS-driven disease.</div>
+        <div class="pr-cell pr-target">RUNX3 / KRAS-mutant</div>
+        <div class="pr-cell pr-ind">KRAS-mutant NSCLC</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">XY003</div>
+        <div class="pr-cell pr-desc">Oral G-quadruplex stabilizer targeting non-canonical DNA structures in DNA-repair-deficient tumors. Structurally distinct from PARP inhibitors.</div>
+        <div class="pr-cell pr-target">G-quadruplex / DDR-def</div>
+        <div class="pr-cell pr-ind">DNA repair-deficient cancers</div>
+      </div>
+      <div class="program-row">
+        <div class="pr-cell pr-name">ANS03</div>
+        <div class="pr-cell pr-desc">Next-gen ROS1/TRK inhibitor. Relevant to the resistance landscape post-crizotinib and lorlatinib in ROS1-rearranged solid tumors.</div>
+        <div class="pr-cell pr-target">ROS1 / TRK</div>
+        <div class="pr-cell pr-ind">ROS1-rearranged solid tumors</div>
+      </div>
+    </div>
+
+    <div class="callout callout-gold">
+      <p><strong>Patterns across these programs:</strong> Three structural themes appear repeatedly. First, synthetic lethality is being applied to new paralog pairs beyond BRCA/PARP — SMARCA4/SMARCA2 and MTAP/PRMT5 are the leading examples. Second, novel surface antigens for ADC delivery continue to emerge — CDH17, ADAM9, 5T4, and CLDN18.2 are each in first-in-human ADC programs. Third, combination modalities are collapsing — the mRNA-encoded trispecific and the ML-designed bispecific both represent formats that would not have been manufacturable at clinical scale three years ago.</p>
+    </div>
+  </section>
+
+  <section class="content-section" style="border-bottom:none">
+    <div class="section-label">What AACR Preclinical Predicts</div>
+    <h2 class="section-title">The Translation Timeline</h2>
+    <div class="two-col">
+      <div class="prose">
+        <p>The lag from AACR preclinical presentation to ASCO Phase 1 data is typically two to four years. Target validation appearing at AACR 2026 in volume — CDH17, ADAM9, 5T4, PRMT5/MTAP — represents programs that will generate IND filings in 2026–2027 and first-in-human data at ASCO or ESMO in 2028–2029.</p>
+        <p>The preclinical programs with the highest translation probability share three characteristics: a clean surface antigen with strong IHC data across multiple tumor types, a validated payload or modality matched to the biology, and a resistance mechanism rationale for why this target matters beyond the existing standard of care.</p>
+        <p>CAR-T has zero Phase 3 representation at AACR 2026. Solid tumor CAR-T programs are at Phase 1, heme programs are at Phase 1/2. The Phase 3 window for solid tumor CAR-T, if the current clinical signals hold, is likely 2028–2030 at the earliest.</p>
+      </div>
+      <div>
+        <div class="chart-box">
+          <div class="chart-title">Estimated Translation Timeline from AACR 2026</div>
+          <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:0.75rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;border-bottom:1px solid var(--border)">
+              <span style="font-size:0.82rem;color:var(--text-muted)">AACR 2026 preclinical → IND filing</span>
+              <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--gold)">2026–2028</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;border-bottom:1px solid var(--border)">
+              <span style="font-size:0.82rem;color:var(--text-muted)">AACR 2026 Phase 1 → Ph2 data</span>
+              <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--gold)">2027–2029</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;border-bottom:1px solid var(--border)">
+              <span style="font-size:0.82rem;color:var(--text-muted)">AACR 2026 Phase 2 → Ph3 initiation</span>
+              <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--gold)">2027–2030</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;border-bottom:1px solid var(--border)">
+              <span style="font-size:0.82rem;color:var(--text-muted)">AACR 2026 Phase 3 → readout</span>
+              <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--green)">2027–2028</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0">
+              <span style="font-size:0.82rem;color:var(--text-muted)">Solid tumor CAR-T → Phase 3 window</span>
+              <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-dim)">2028–2030</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">F-Prime Life Sciences</div>
+    <div class="footer-note">AACR 2026 analysis. AI-processed April 2026. Internal use only.</div>
+  </div>
+</footer>
+</body>
+</html>
